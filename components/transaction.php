@@ -32,7 +32,7 @@ if(!$result){
 </head>
 <body>
 <div id="sidebar"><li>
-        <header><a href="home.html">
+        <header><a href="home.php">
             <i class="fa-solid fa-computer"></i>
             <span>Home</span>
         </a>
@@ -51,19 +51,19 @@ if(!$result){
                 </a>
             </li>
             <li>
-                <a href="tasks.html">
+                <a href="product.php">
                     <i class="fa-solid fa-laptop"></i>
                     <span>Product</span>
                 </a>
             </li>
             <li>
-                <a href="profile.html">
+                <a href="supplier.php">
                     <i class="fa-solid fa-truck-field"></i>
                     <span>Supplier</span>
                 </a>
             </li>
             <li>
-                <a href="profile.html">
+                <a href="transaction.php">
                     <i class="fa-solid fa-indian-rupee-sign"></i>
                     <span>Transaction</span>
                 </a>
