@@ -44,25 +44,25 @@ if(!$result){
                 </a>
             </li>
             <li>
-                <a href="projects.html">
+                <a href="employee.php">
                     <i class="fa-solid fa-user-large"></i>
                     <span>Employee</span>
                 </a>
             </li>
             <li>
-                <a href="tasks.html">
+                <a href="product.php">
                     <i class="fa-solid fa-laptop"></i>
                     <span>Product</span>
                 </a>
             </li>
             <li>
-                <a href="profile.html">
+                <a href="supplier.php">
                     <i class="fa-solid fa-truck-field"></i>
                     <span>Supplier</span>
                 </a>
             </li>
             <li>
-                <a href="profile.html">
+                <a href="transaction.php">
                     <i class="fa-solid fa-indian-rupee-sign"></i>
                     <span>Transaction</span>
                 </a>

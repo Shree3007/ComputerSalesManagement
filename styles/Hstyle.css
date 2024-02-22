@@ -8,7 +8,7 @@ body {
 #sidebar {
     width: 60px;
     height: 100vh;
-    background: linear-gradient(to bottom, #BFB59E, #34495e);
+    background: linear-gradient(to bottom, #BFB59E, #858786);
     color: #ecf0f1;
     transition: width 0.3s;
     overflow-x: hidden;
@@ -29,7 +29,7 @@ body {
     text-align: center;
     font-size: 1.2em;
     font-weight: bold;
-    border-bottom: 1px solid #2c3e50;
+    border-bottom: 1px solid #858786;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -47,13 +47,13 @@ body {
     display: flex;
     align-items: center;
     padding: 15px;
-    border-bottom: 1px solid #2c3e50;
+    border-bottom: 1px solid #858786;
     transition: background-color 0.3s;
     overflow: hidden;
 }
 
 #sidebar li:hover {
-    background-color: #2c3e50;
+    background-color: #858786;
 }
 
 #sidebar li a {
@@ -88,4 +88,10 @@ body {
 
 #sidebar:hover + #content {
     margin-left: 250px; /* Adjust the width to match the sidebar width on hover */
+}
+.body{
+    background-image: url;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #B4ADA3;
 }
