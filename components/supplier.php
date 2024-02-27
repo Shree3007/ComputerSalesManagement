@@ -30,7 +30,7 @@ if(!$result){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>List of Supplier</title>
 </head>
-<body>
+<body class="body">
 <div id="sidebar"><li>
         <header><a href="home.php">
             <i class="fa-solid fa-computer"></i>
@@ -76,8 +76,8 @@ if(!$result){
     <div class="container my-5">
         <h2>List of Suppliers</h2>
         <a class="btn btn-primary" href="createSupplier.php" role="button">New Supplier</a>
-        <br>
-        <table class="table">
+        <br><br>
+        <table class="table table-hover table-striped">
             <thead>
                 <tr>
                     <th>SUP_ID</th>

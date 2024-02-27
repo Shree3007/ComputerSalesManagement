@@ -64,9 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/Hstyle.css">
     <title>Edit Customer</title>
 </head>
-<body>
+<body class="body">
     <div class="container my-5">
         <h2>Edit Customer</h2>
         <!-- Form for editing customer details -->

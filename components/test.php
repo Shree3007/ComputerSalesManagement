@@ -38,7 +38,7 @@
   }
 </style>
 </head>
-<body>
+<body class="body">
 
 <div class="container">
   <div class="box">
