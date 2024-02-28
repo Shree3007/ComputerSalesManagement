@@ -64,6 +64,9 @@ if ($result && $result->num_rows > 0) {
     $transactions_count = 0;
 }
 
+$sql = "SELECT * FROM transactions ORDER BY date DESC LIMIT 5";
+$result = $connection->query($sql);
+
 // Close connection
 $connection->close();
 ?>
@@ -105,6 +108,7 @@ $connection->close();
     <title>Home</title>
     <link rel="stylesheet" href="../styles/Hstyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 </head>
 <body class="body">
 
@@ -182,6 +186,35 @@ $connection->close();
             <h2>Number of Transactions: <?php echo $transactions_count; ?></h2>
             </div>
         </div>
+        <br>
+        <br>
+        <h1>Latest Transactions :</h1>
+    <table class="table  table-sm">
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Date</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            // Check if there are any transactions
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $row["tr_id"] . "</td>";
+                    echo "<td>" . $row["date"] . "</td>";
+                    echo "<td>" . $row["price"] . "</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='5'>No transactions found</td></tr>";
+            }
+            ?>
+        </tbody>
+    </table>
     </div>
 
 </body>
