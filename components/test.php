@@ -1,72 +1,65 @@
+<?php
+// Database connection parameters
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "computersales";
+
+// Create connection
+$connection = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($connection->connect_error) {
+    die("Connection failed: " . $connection->connect_error);
+}
+
+// Query to fetch the latest 5 transactions
+$sql = "SELECT * FROM transactions ORDER BY date DESC LIMIT 5";
+$result = $connection->query($sql);
+
+// Close connection
+$connection->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Professional Layout</title>
-<style>
-  /* CSS styles */
-  .container {
-    display: flex;
-    justify-content: center; /* Centering the items horizontally */
-    flex-wrap: wrap; /* Allowing flex items to wrap to the next line */
-    gap: 20px; /* Adding space between the flex items */
-    width: 80%; /* Adjusting the width of the container */
-    margin: 0 auto; /* Centering the container horizontally */
-    transition: all 0.5s ease-in-out; /* Adding transition to the container */
-  }
-  .box {
-    width: calc(30% - 20px); /* Adjusting the width to account for margin */
-    padding: 20px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    transition: all 0.3s ease-in-out; /* Adding transition to the boxes */
-  }
-  .box:hover {
-    transform: scale(1.05); /* Scaling up the box on hover */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Adding a stronger shadow on hover */
-  }
-  .box h2 {
-    text-align: center;
-    margin-bottom: 10px;
-    transition: color 0.3s ease-in-out; /* Adding transition to the heading color */
-  }
-  .box p {
-    transition: color 0.3s ease-in-out; /* Adding transition to the paragraph color */
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest Transactions</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 </head>
-<body class="body">
-
-<div class="container">
-  <div class="box">
-    <h2>Box 1</h2>
-    <p>This is the content of Box 1.</p>
-  </div>
-  <div class="box">
-    <h2>Box 2</h2>
-    <p>This is the content of Box 2.</p>
-  </div>
-  <div class="box">
-    <h2>Box 3</h2>
-    <p>This is the content of Box 3.</p>
-  </div>
-  <div class="box">
-    <h2>Box 4</h2>
-    <p>This is the content of Box 4.</p>
-  </div>
-  <div class="box">
-    <h2>Box 5</h2>
-    <p>This is the content of Box 5.</p>
-  </div>
-</div>
-
-<script>
-  // JavaScript (optional)
-  // You can add JavaScript here if you want to add interactivity to your layout.
-</script>
-
+<body>
+    <h1>Latest Transactions :</h1>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Product ID</th>
+                <th>Customer ID</th>
+                <th>Date</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            // Check if there are any transactions
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $row["tr_id"] . "</td>";
+                    echo "<td>" . $row["p_id"] . "</td>";
+                    echo "<td>" . $row["cust_id"] . "</td>";
+                    echo "<td>" . $row["date"] . "</td>";
+                    echo "<td>" . $row["price"] . "</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='5'>No transactions found</td></tr>";
+            }
+            ?>
+        </tbody>
+    </table>
 </body>
 </html>

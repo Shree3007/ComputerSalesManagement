@@ -69,7 +69,14 @@ if(!$result){
             </li>
             <!-- Add more options as needed -->
         </ul>
-        <footer></footer>
+        <footer>
+        <li>
+                <a href="../index.html">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>log Out</span>
+                </a>
+            </li>
+        </footer>
     </div>
     <div id="content">
     <div class="container my-5">

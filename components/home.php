@@ -147,11 +147,16 @@ $connection->close();
             </li>
             <!-- Add more options as needed -->
         </ul>
-        <footer></footer>
+        <footer><li>
+                <a href="../index.html">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>log Out</span>
+                </a>
+            </li></footer>
     </div>
 
     <div id="content">
-        <div style="height:100px"></div>
+        <div id="upperDiv" style="height:100px;"><h1 style="background-color:#CAB7A2">Dashboard:</h1></div>
         <div class="container1">
             <div class="box1">
             <h2><i class="fa-solid fa-users"></i></h2>
@@ -168,12 +173,12 @@ $connection->close();
         </div>
         <div class="container1">
             <div class="box1">
-            <h2><i class="fa-solid fa-users"></i></h2>
+            <h2><i class="fa-solid fa-truck-field"></i></h2>
             <h2>Total Supplier: <?php echo $supplier_count; ?></h2>
             </div>
 
             <div class="box1">
-            <h2><i class="fa-solid fa-laptop"></i></h2>
+            <h2><i class="fa-solid fa-indian-rupee-sign"></i></h2>
             <h2>Number of Transactions: <?php echo $transactions_count; ?></h2>
             </div>
         </div>
