@@ -15,6 +15,12 @@ if($connection->connect_error){
 $sql = "SELECT * FROM transactions";
 $result = $connection->query($sql);
 
+$sql = "SELECT t.tr_id, t.p_id, t.cust_id, t.date, t.quantity, t.price, c.fname, p.name
+        FROM transactions t
+        INNER JOIN customers c ON t.cust_id = c.cust_id
+        INNER JOIN product p ON t.p_id = p.p_id";
+$result = $connection->query($sql);
+
 if(!$result){
     die("Invalid query: " . $connection->error);
 }

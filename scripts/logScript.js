@@ -6,6 +6,14 @@ function func(){
 		alert("successful")
 		window.location = "./components/home.php"
 	}
+	else if(email == 'uttam@gmail.com'&& pass == '123'){
+		alert("successful")
+		window.location = "./components/home.php"
+	}
+	else if(email == 'admin@gmail.com'&& pass == 'admin@123'){
+		alert("successful")
+		window.location = "./components/home.php"
+	}
 	else{
 		alert("invalid entry")
 	}

@@ -183,7 +183,7 @@ $connection->close();
 
             <div class="box1">
             <h2><i class="fa-solid fa-indian-rupee-sign"></i></h2>
-            <h2>Number of Transactions: <?php echo $transactions_count; ?></h2>
+            <h2>Total Transactions: <?php echo $transactions_count; ?></h2>
             </div>
         </div>
         <br>
