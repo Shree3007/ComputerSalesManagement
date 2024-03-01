@@ -15,6 +15,26 @@ $price ="";
 $errorMessage = "";
 $successMessage = "";
 
+// Fetching product IDs from the product table
+$productIds = [];
+$sqlProduct = "SELECT p_id FROM product";
+$resultProduct = $connection->query($sqlProduct);
+if ($resultProduct->num_rows > 0) {
+    while ($row = $resultProduct->fetch_assoc()) {
+        $productIds[] = $row['p_id'];
+    }
+}
+
+// Fetching customer IDs from the customers table
+$customerIds = [];
+$sqlCustomer = "SELECT cust_id FROM customers";
+$resultCustomer = $connection->query($sqlCustomer);
+if ($resultCustomer->num_rows > 0) {
+    while ($row = $resultCustomer->fetch_assoc()) {
+        $customerIds[] = $row['cust_id'];
+    }
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $p_id = $_POST["p_id"];
     $cust_id = $_POST["cust_id"];
@@ -28,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             break;
         }
 
-        // Add client to db
+        // Add transaction to db
         $sql = "INSERT INTO transactions(p_id, cust_id, date, quantity, price)" .
         "VALUES('$p_id','$cust_id','$date','$quantity','$price')";
 
@@ -39,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 exit;
             }
         } catch (mysqli_sql_exception $exception) {
-            $errorMessage = "Warning: Product_id or Customer_id Does not Exist !! ";
+            $errorMessage = "Warning: " . $exception->getMessage();
         }
     } while (false);
 }
@@ -79,13 +99,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Product ID</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="p_id" value="<?php echo $p_id; ?>">
+                    <select class="form-select" name="p_id">
+                        <option value="">Select Product ID</option>
+                        <?php foreach ($productIds as $productId) : ?>
+                            <option value="<?php echo $productId; ?>"><?php echo $productId; ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
             </div>
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Customer ID</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="cust_id" value="<?php echo $cust_id; ?>">
+                    <select class="form-select" name="cust_id">
+                        <option value="">Select Customer ID</option>
+                        <?php foreach ($customerIds as $customerId) : ?>
+                            <option value="<?php echo $customerId; ?>"><?php echo $customerId; ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
             </div>
             <div class="row mb-3">

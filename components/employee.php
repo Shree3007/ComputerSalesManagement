@@ -31,7 +31,7 @@ if(!$result){
 </head>
 <body class="body">
 <div id="sidebar"><li>
-        <header><a href="home.html">
+        <header><a href="home.php">
             <i class="fa-solid fa-computer"></i>
             <span>Home</span>
         </a>
